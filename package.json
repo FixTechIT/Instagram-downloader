@@ -1,0 +1,18 @@
+{
+  "name": "instagram-downloader",
+  "version": "1.0.0",
+  "description": "Instagram downloader application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "ffmpeg": "^0.10.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "instagram-url-direct": "^2.0.3"
+  }
+}

@@ -1,0 +1,1186 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Downloader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+        .tabs button.active {
+            border-bottom: 2px solid #262626;
+        }
+        .section {
+            display: none;
+        }
+        .section.active-section {
+            display: block;
+        }
+        .input {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #3897f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .steps {
+            margin-top: 20px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .step span {
+            font-size: 24px;
+            margin-right: 10px;
+            background-color: #3897f0;
+            color: #fff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dotted-line {
+            border-top: 1px dotted #dbdbdb;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Instagram Downloader</h1>
+    </header>
+    <section class="container">
+        <div class="tabs">
+            <button class="button active" data-tab="stories">Stories</button>
+            <button class="button" data-tab="reels">Reels</button>
+            <button class="button" data-tab="video">Video</button>
+            <button class="button" data-tab="photo">Photo</button>
+            <button class="button" data-tab="audio">Audio</button>
+            <button class="button" data-tab="hashtag">Hashtag</button>
+        </div>
+
+        <div class="section stories active-section" id="stories">
+            <h3>Download Instagram Stories</h3>
+            <p>Download your favorite Instagram stories quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the story</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download story offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <input type="hidden" name="fileType" value="mp4">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section reels" id="reels">
+            <h3>Download Instagram Reels</h3>
+            <p>Download your favorite Instagram reels quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the reel</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download reel offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <input type="hidden" name="fileType" value="mp4">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section video" id="video">
+            <h3>Download Instagram Videos</h3>
+            <p>Download Instagram videos quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the video</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download video offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <input type="hidden" name="fileType" value="mp4">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section photo" id="photo">
+            <h3>Download Instagram Photos</h3>
+            <p>Download Instagram photos quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the photo</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download photo offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <input type="hidden" name="fileType" value="jpg">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section audio" id="audio">
+            <h3>Download Instagram Audio</h3>
+            <p>Download Instagram audio quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the audio</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download audio offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <input type="hidden" name="fileType" value="mp3">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section hashtag" id="hashtag">
+            <h3>Download Instagram Hashtag Content</h3>
+            <p>Download Instagram content by hashtag quickly and easily.</p>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to the hashtag page</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste link into input box and click "Download"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download content offline</p>
+                </div>
+            </div>
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url"><i class="fas fa-link"></i> URL:</label>
+                        <input type="text" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileType"><i class="fas fa-file"></i> File Type:</label>
+                        <select class="form-control" name="fileType" required>
+                            <option value="mp4">MP4 Video</option>
+                            <option value="mp3">MP3 Audio</option>
+                            <option value="jpg">JPG Image</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelectorAll('.tabs button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                document.querySelectorAll('.section').forEach(section => section.classList.remove('active-section'));
+                document.getElementById(button.dataset.tab).classList.add('active-section');
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta Video Saver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav>
+            <div class="navbar">
+                <div class="left">
+                    <img src="/img/logo.png" alt="" height="30px" width="30px"><a href="/">INSTA VIDEO <span>SAVER</span></a>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li class="tabs"><a href="">Tools</a></li>
+                        <li class="tabs"><a href="">Tutorial</a></li>
+                        <li class="tabs"><a href="">Blogs</a></li>
+                        <li class="tabs"><a href="">Contact Us</a></li>
+                        <li><a href="">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar">
+                    <a href=""><i class="fa-solid fa-bars"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="innerContainer">
+                <div class="first">
+                    <ul>
+                        <li>Fast</li>
+                        <li>High Quality</li>
+                        <li>Free</li>
+                    </ul>
+                </div>
+                <h1 id="name">Instagram Story Download</h1>
+                <h5 id="desc">Download Story Video from Instagram</h5>
+                <div class="buttons">
+                    <div class="button-1 button active" data-tab="btn1"><i class="fa-regular fa-circle-play icons"></i><p>Stories</p></div>
+                    <div class="button-2 button" data-tab="btn2"><i class="fa-solid fa-film icons" ></i><p>Reels</p></div>
+                    <div class="button-3 button" data-tab="btn3"><i class="fa-solid fa-music icons"></i><p>Audio</p></div>
+                    <div class="button-4 button" data-tab="btn4"><i class="fa-solid fa-image icons"></i><p>Photo</p></div>
+                    <div class="button-5 button" data-tab="btn5"><i class="fa-brands fa-youtube icons"></i><p>Video</p></div>
+                    <div class="button-6 button" data-tab="btn6"><i class="fa-regular fa-hashtag icons"></i><p>Hashtag</p></div>
+                </div>
+            </div>
+            <!-- <div class="input">
+                <input type="text" id="input" placeholder="Paste Link Here...">
+                <button><i class="fa-solid fa-download"></i>Download</button>
+                <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+            </div> -->
+            
+        </div>
+    </header>
+
+    <section>
+        <div class="section Reels" id="btn2">
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text"  id="input" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                        </label>
+                        
+                        <input type="hidden" name="fileType" value="mp4">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+                    </div>
+                </form>
+            </div>
+
+            <p>Insta Video Saver is an online free and fast tool which helps you to download instagram reels video or to save reels video to your device. You can save any reels videos to your phone or computer and view them offline anytime.</p>
+            <h4>Here's a quick and easy way to do it:</h4>
+            <h3 style="text-align: center;">Steps to Download Reels From Instagram</h3>
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Choose the <br> Reels video that<br> you want to download.</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Copy URL/Link <br> of the video.</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Open website “http://  <br> instavideosaver”</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Paste URL/Link <br> into input box.</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>5</span>
+                    <p>Click on the <br> “Download <br> Video” button <br>to save file  <br> to your device.</p>
+                </div>
+            </div>
+            <!-- <p><strong>Step:1</strong> Choose the Reels video that you want to download.</p>
+            <p><strong>Step:2</strong> Copy URL/Link of the video.</p>
+            <p><strong>Step:3</strong> Open website: "https://instavideosaver.net",</p>
+            <p><strong>Step:4</strong> Paste Url/Link into input box.</p>
+            <p><strong>Step:5</strong> Click on the "Download Video" button to save file to your device</p> -->
+            <h3>How Instagram Downloader Works?</h3>
+            <p>An Instagram reels downloader is a tool or software that allows you to download Reels, Video and Photos from Instagram without watermark by simply entering the URL/Link of the content you want to download.</p>
+            <h4>Key features:</h4>
+            <ol>
+                <li>Original quality without watermark, which most of the tools out there can't.</li>
+                <li>Download Reels video in gallery on any device that you want: mobile, iPhone, iPad, PC, or tablet.</li>
+                <li>Download Instagram reels online by link using your browser: We want to keep things simple, so you don't need to download or install any software.</li>
+                <li>It's always free. We only place some ads, which support maintaining our services, and further development.</li>
+            </ol>
+            <p>We do not require any information to access our tool, so you don't need to worry about providing your login details also we do not charge anything for using our service. This is lifetime free service, Which can be used to download an unlimited amount of reels video.</p>
+            <h3>Why? InstaVideoSaver</h3>
+            <p>Our Instagram reels viewer and downloader allows users to download Instagram reels video fast and free; it just took few seconds to fetch video from link and directly download it into gallery of your device. It is a super-fast Tool that takes less time to download reels from Instagram.</p>
+            <h3>How to download reels video online from Instagram?</h3>
+            <p>Watching Reels videos is just a simple stuff, but when it comes to download or save instagram reels it is little challenging. As Instagram doesn't allow to download reels or any media content directly from the app or website online, here InstaVideoSaver web based tool helps you to do that in high quality mp4, jpg or mp3 audio formats.
+                It's important to note that downloading content from instagram without the permission of the owner may violate the platform's terms of service. You should only download content that you have permission to use or that is available under a Creative Commons license.<br/><br/>
+                <strong>DMCA:</strong> InstaVideoSaver complies with 17 U.S.C. * 512 and the Digital Millennium Copyright Act (DMCA). It is our policy to respond to any infringement notices and take appropriate actions. If your copyrighted material has been posted on the site and you want this material removed.</p>
+        </div>
+
+        <div class="section stories" id="btn1">
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text" id="input" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                        </label>
+                        <input type="hidden" name="fileType" value="mp4">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <h3>Download Instagram story videos online</h3>
+            <p>An Instagram story is a feature on the Instagram app that allows users to share photos, videos, and other  media with their followers for a period of 24 hours.<br/><br/>
+
+                To create an Instagram story, you can take a new photo or video using the Instagram camera, or you can choose an existing photo or video from your device" camera roll. Once you+ve selected your media, you can add text, stickers, or other visual elements to customize your story. To share your story, you can select specific followers or send it to all of your followers by posting it to your profile.<br/><br/>
+                
+                To view someone else" Instagram story, you can tap on their profile picture in the top bar of your feed, which will take you to their profile. From there, you can swipe left or right to view their individual stories. You can also view a person" Instagram story by tapping on their profile picture in the Direct Messages section of the app.<br/><br/>Instagram stories are a great way to share everyday moments and experiences with your followers in a more casual, ephemeral way.</p>
+            <h3>How to Download Instagram Stories?</h3>
+            <p>InstaVideoSaver offers a free web-based tool which allows you to download Instagram stories, it" a quick and easy way to get your Instagram stories downloaded offline to your device.<br/><br/>
+                We have mentioned steps below which will guide you to download Instagram stories online to your mobile tablet, pc or iOS:-</p><br/>
+            <!-- <ol>
+                <li>Open "Instavideosaver.net"..</li>
+                <li>Type Username in input field.</li>
+                <li>Click "Download" button,</li>
+                <li>Done, your story has been downloaded.</li>
+            </ol>     -->
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Open <br> InstaVideoSaver</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Type Username<br> in input field.</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Click "Download" <br> Button</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Done, your story<br> has been downloaded.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section audio" id="btn3">
+
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text" id="input" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                        </label>
+                        <input type="hidden" name="fileType" value="mp3">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+                    </div>
+                   
+                </form>
+            </div>
+
+            <h3>Download Instagram Reels, Igtv, videos to Mp3 Audio</h3>
+            <p>InstaVideoSaver offers a free instagram to mp3 converter tool which allows you to extract and download Mp3 Audio from Instagram Reels, Igtv, videos. it's a quick and easy way to convert and download instagram videos to Mp3 Audio online.<br/><br/>
+                Instagram is without a doubt one of the most popular social networking platforms with over 1 billion monthly active users. If you ever wanted to convert Instagram reels, igtv, video to mp3 audio and download previous instagram videos as audio only that you’ve shared with Instagram over the years, you can do it right from your mobile, tablet, iPhone or iPad, or any other device and it’s a lot easier than you think.</p>
+            <h3>How to convert Instagram videos and reels to audio mp3?</h3>
+            <p>In order to download instagram reels, igtv, video to audio mp3, first copy the link to the video and then paste it into the input form on InstaVideoSaver/audio/. Then after, click download button to convert and download instagram videos, igtv, reels to mp3 audio only.</p>
+            <h3>Instagram reels audio download</h3>
+            <p>instagram reels is one of the most popular shorts video creating plateform, thousand of users post reels on instagram from which most of users want to use a particular audio in their videos. Using instagram video to audio downloader, you can convert reels to mp3 and download audio from a reel video by link.<br/><br>
+            How to download Instagram reels Audio only?</p>
+            <!-- <ol>
+                <li>Copy link to the Reels video.</li>
+                <li>Open "InstaVideoSaver/audio/"</li>
+                <li>Paste Link into Input box and click "Download".</li>
+                <li>Download Reels audio only..</li>
+            </ol>    -->
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Copy link to<br> the Reels video.</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open<br> "InstaVideoSaver/audio/"</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Paste Link into Input box<br>and click "Download</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Download Reels<br> audio only.</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="section photo" id="btn4">
+
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text" id="input" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                        </label>
+                        <input type="hidden" name="fileType" value="jpg">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <h3>Download Instagram photos, reels thumbnail or cover online</h3>
+            <p>InstaVideoSaver offers a free web-based tool which allows you to download Instagram photos, it's a quick and easy way to get your Instagram photos, reels video thumbnail or cover photo downloaded offline to your device.<br><br>
+                Instagram is without a doubt one of the most popular social networking platforms with over 1 billion monthly active users. If you ever wanted to grab all your photos and download all previous instagram photo that you’ve shared with Instagram over the years, you can do it right from your mobile, tablet, iPhone or iPad, or any other device and it’s a lot easier than you think.</p>
+            <h3>How to download instagram photos?</h3>
+            <p>Follow below mentioned steps to download instagram photos or reels thumbnail online to mobile, tablet, pc or iOS:-<br><br>
+                <!-- Open "InstaVideoSaver".<br>
+                Paste link/url to your Instagram post.<br>
+                Click "Download" button.<br>
+                Done, your photo has been downloaded.--><br></p>
+                <div class="steps">
+                    <div class="step">
+                        <span>1</span>
+                        <p>Open<br>"InstaVideoSaver"</p>
+                    </div>
+                    <h2 class="dotted-line"></h2>
+                    <div class="step">
+                        <span>2</span>
+                        <p>Paste link/url to your<br> Instagram post</p>
+                    </div>
+                    <h2 class="dotted-line"></h2>
+                    <div class="step">
+                        <span>3</span>
+                        <p>Click "Download"<br>button</p>
+                    </div>
+                    <h2 class="dotted-line"></h2>
+                    <div class="step">
+                        <span>4</span>
+                        <p>Done, your photo<br> has been downloaded.</p>
+                    </div>
+                </div>
+            <h3>How to copy link to Instagram photo?</h3>
+            <ol>
+                <li>Open Instagram App.</li>
+                <li>Select photo whose link to copy.</li>
+                <li>Click on Three dots, located at top right corner of your post.</li>
+                <li>Choose "copy link" among other options.</li>
+                <li>Done, your link/url has been copied.</li>
+            </ol>
+        </div>
+
+        <div class="section video" id="btn5">
+
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text" id="input" class="form-control" name="url" placeholder="Paste Link Here..." required>
+                        </label>
+                        <input type="hidden" name="fileType" value="mp4">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg"><span>Example:</span>https://www.intagram.com/p/B7ITR7vpsn/</h5>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <h3>what is Instagram downloader?</h3>
+            <p>An Instagram downloader is a tool or software that allows users to download photos and videos from Instagram. There are a variety of Instagram downloaders available, including web-based tools, desktop software, and mobile apps. Our Instagram downloaders is free to use, while others may require a subscription or payment.<br><br>
+                To use an Instagram downloader, you typically need to provide the link to the Instagram post that you want to download. The downloader will then extract the media file from the post and provide you with a download link or save the file to your device.<br><br>
+                
+                InstaVideoSaver offers a free web-based tool which allows you to download Instagram videos online, it's a quick and easy way to get your Instagram content downloaded offline to your device.<br></p>
+            <h3>Download Instagram Videos, Photos & Reels</h3>
+            <p>Instagram videos are short video clips that users can share on the social media platform Instagram. Instagram videos and reels can be up to 60 minutes & 60 seconds long. It can be edited with a variety of creative tools, such as the ability to trim and splice video clips, add filters and effects, and include text and stickers. <br><br>
+                Instagram videos, reels and photos are meant to provide a way for users to share their experiences, interests, and talents with their followers and the wider Instagram community in a visually engaging and dynamic way.</p>
+            <h3>How to download Instagram Videos?</h3>
+            <p>We have mentioned steps below which will heps you to download Instagram videos, reels, igtv, photo, profile and stories online to your mobile, tablet, pc or iOS:-</p><br>
+            <!-- <ol>
+                <li>Open instagram and copy link/url to your video.</li>
+                <li>Open "InstaVideoSaver" and paste link in input field.</li>
+                <li>Click "Download" to save the video to device.</li>
+                <li>Done! your video has been downloaded.
+                    </li>
+            </ol> -->
+            <div class="steps">
+                <div class="step">
+                    <span>1</span>
+                    <p>Open instagram and copy<br>link/url to your video</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>2</span>
+                    <p>Open "InstaVideoSaver" and<br> paste link in input field</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>3</span>
+                    <p>Click "Download" to save<br>the video to device</p>
+                </div>
+                <h2 class="dotted-line"></h2>
+                <div class="step">
+                    <span>4</span>
+                    <p>Done, your video<br> has been downloaded.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section hashtag" id="btn6">
+            <div class="input">
+                <form action="/download" method="post">
+                    <div class="form-group">
+                        <label for="url">
+                            <input type="text" id="input" class="form-control" name="url" placeholder="Type word ex: night, travel, car etc..." required>
+                        </label>
+                        <input type="hidden" name="fileType" value="mp4">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button>
+                        <h5 id="eg">Type Multiple words according to your post or reel type, so we can suggest you best Hashtags.</h5>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="fileType"><i class="fas fa-file"></i> File Type:</label>
+                        <select class="form-control" name="fileType" required>
+                            <option value="mp4">MP4 Video</option>
+                            <option value="mp3">MP3 Audio</option>
+                            <option value="jpg">JPG Image</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download</button> -->
+                </form>
+            </div>
+        
+
+            
+            <p>An Instagram Hashtag Generator is a tool or service that helps users generate relevant and popular hashtags for their Instagram posts. Instagram hashtags play a crucial role in increasing the visibility of posts, reaching a wider audience, and engaging with like-minded users.</p>
+            <h3>How It Works</h3>
+            <strong>User Input:</strong><p>An Instagram Hashtag Generator is a tool or service that helps users generate relevant and popular hashtags for their Instagram posts. Instagram hashtags play a crucial role in increasing the visibility of posts, reaching a wider audience, and engaging with like-minded users.</p>
+            <strong>Hashtag Suggestions:</strong><p>The generator provides a list of relevant and trending hashtags based on the input. These can include a mix of popular and niche hashtags to cater to a broad yet targeted audience.</p>
+            <strong>Selection and Copying</strong><p>Users can then select the hashtags that best fit their content and easily copy them to paste directly into their Instagram captions or comments.</p>
+            <strong>Enhanced Visibility:</strong><p> By using well-curated and popular hashtags, users increase the chances of their posts being discovered by a larger audience interested in similar content. <br>
+                Our Hashtag Generator tool is valuable for social media influencers, businesses, or anyone looking to optimize their Instagram strategy. They save time and effort in researching and selecting hashtags, allowing users to focus more on creating engaging content.</p>
+            <h3>Frequently Asked Questions (FAQs)</h3>
+            <h3>1. What is an Instagram Hashtag Generator?</h3>
+            <p>An Instagram Hashtag Generator is a tool designed to help users discover relevant and trending hashtags for their Instagram posts. It simplifies the process of finding appropriate hashtags, enhancing post visibility and engagement.</p>
+            <h3>2. How does the Hashtag Generator work?</h3>
+            <p>Users typically input keywords or describe their content, and the generator suggests a list of hashtags based on the input. It aims to provide a mix of popular and niche hashtags, catering to a broad yet targeted audience.</p>
+            <h3>3. Why should I use a Hashtag Generator?</h3>
+            <p>Using a Hashtag Generator saves time and effort in researching and selecting hashtags manually. It ensures that your posts reach a wider audience by using well-curated and effective hashtags.</p>
+            <h3>4. Can I customize the generated hashtags?</h3>
+            <p>Yes, most Hashtag Generators allow users to customize and select hashtags based on their preferences. Users can choose hashtags that best represent their content and style.</p>
+            <h3>5. Are the suggested hashtags always up-to-date?</h3>
+            <p>A good Hashtag Generator often updates its database to provide users with trending and relevant hashtags. However, it's essential to stay informed about changes in Instagram algorithms and popular trends.</p>
+            <h3>6. Can I use a Hashtag Generator for any niche?</h3>
+            <p>Yes, Hashtag Generators cover a wide range of categories, including travel, food, fitness, fashion, and more. Users can find relevant hashtags for almost any niche or interest.</p>
+            <h3>7. How do I implement generated hashtags in my Instagram posts?</h3>
+            <p>After selecting the desired hashtags, you can copy them from the generator and paste them directly into your Instagram captions or comments when creating a post.</p>
+            <h3>8. Will using generated hashtags increase my post visibility?</h3>
+            <p>Yes, using well-curated and popular hashtags can significantly enhance the visibility of your Instagram posts. They allow your content to reach a broader audience interested in similar topics.</p>
+            <h3>9. Are Hashtag Generators free to use?</h3>
+            <p>Many Hashtag Generators offer free versions with basic features. Some may have premium plans with additional functionalities. It depends on the specific tool you choose.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="left">
+                <img src="/img/logo.png" alt="" height="30px" width="30px"><a href="/">INSTA VIDEO <span>SAVER</span></a>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="/privacyPolicy">Privacy Policy</a></li>
+                    <li><a href="/Condition">Terms & Conditions</a></li>
+                    <li><a href="/Contact">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/8b00f4755d.js" crossorigin="anonymous"></script>
+    <script>
+        let tabButtons = document.querySelectorAll(".button")
+        let name = document.getElementById('name')
+        let desc = document.getElementById('desc')
+        let input = document.getElementById('input')
+        let eg = document.getElementById('eg')
+
+
+        tabButtons.forEach((e)=>{
+            e.addEventListener('click',function(){
+                if(e.innerText == "Stories"){
+                    name.innerText = "Instagram Story Download"
+                    desc.innerText = "Download Story Video from Instagram"
+                    input.setAttribute('placeholder','Paste Link Here...')
+                    eg.innerText = "Example: https://www.intagram.com/p/B7ITR7vpsn/"
+                }
+                else if(e.innerText == "Reels"){
+                    name.innerText = "Instagram Reels Download"
+                    desc.innerText = "Download reels video without Watermark & Logo"
+                    input.setAttribute('placeholder','Paste Link Here...')
+                    eg.innerText = "Example: https://www.intagram.com/p/B7ITR7vpsn/"
+                }
+                else if(e.innerText == "Hashtag"){
+                    name.innerText = "Instagram Hashtag Generator"
+                    desc.innerText = "Get Trending Hashtags for your Reels & Photos"
+                    input.setAttribute('placeholder','Type word ex: night, travel, car etc...')
+                    eg.innerText = "Type Multiple words according to your post or reel type, so we can suggest you best Hashtags."
+                }
+                else if(e.innerText == "Audio"){
+                    name.innerText = "Instagram to MP3 Convert"
+                    desc.innerText = "Convert and Download Instagram Videos & Reels to Audio mp3 online"
+                    input.setAttribute('placeholder','Paste Link Here...')
+                    eg.innerText = "Example: https://www.intagram.com/p/B7ITR7vpsn/"
+                }
+                else if(e.innerText == "Photo"){
+                    name.innerText = "Photo Downloader For Instagram"
+                    desc.innerText = "Save original high-quality video from instafram to your device"
+                    input.setAttribute('placeholder','Paste Link Here...')
+                    eg.innerText = "Example: https://www.intagram.com/p/B7ITR7vpsn/"
+                }
+                else if(e.innerText == "Video"){
+                    name.innerText = "Instagram Video Download"
+                    desc.innerText = "Download Video, Reels & igtv from Instagram"
+                    input.setAttribute('placeholder','Paste Link Here...')
+                    eg.innerText = "Example: https://www.intagram.com/p/B7ITR7vpsn/"
+                }
+
+                let tabName = this.dataset.tab
+                let tabContent = document.getElementById(tabName)
+                let allTabContent = document.querySelectorAll('.section')
+                let allTabButtons = document.querySelectorAll('.button')
+
+                allTabContent.forEach((e)=>{
+                    e.style.display = 'none'
+                }) 
+
+                allTabButtons.forEach((e)=>{
+                    e.classList.remove('active')
+                })
+
+                tabContent.style.display = 'block'
+                e.classList.add('active')
+
+            })
+        })
+
+    </script>
+</body>
+</html>
+
+
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"Manrope";
+}
+
+/* Navbar */
+
+nav{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid rgba(207, 203, 203, 0.37);
+}
+
+.right{
+    width: 50%;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.navbar{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.right ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right ul li{
+    list-style: none;
+    font-weight: bold;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.left a{
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.left a span{
+    color: rgb(211, 42, 42);
+}
+
+.right ul li:last-child{
+    border: 2px solid rgb(211, 42, 42);
+    padding: 5px 15px;
+    /* height: 30px;
+    width: 80px; */
+    border-radius: 5px;
+    /* text-align: center;
+    line-height: 30px; */
+}
+
+.right ul li:last-child a{
+    color: rgb(211, 42, 42);
+}
+
+.tabs:hover{
+    border-bottom: 3px solid rgb(211, 42, 42);
+}
+
+
+.sidebar{
+    font-size: 22px;
+    display: none;
+}
+
+/* Container */
+
+.container{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.innerContainer{
+    width: 90%;
+    height: 300px;
+    background-image: linear-gradient(rgb(204, 13, 55),rgb(199, 42, 76),rgb(128, 31, 39));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.input{
+    width:100%;
+    margin-top: 20px;
+    color: black;
+    margin-bottom: 50px;
+}
+
+.first{
+    margin-top: 40px;
+    width: 250px;
+    font-size: 13px;
+    font-weight: bold;
+    height: fit-content;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+.first ul{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px 5px;
+}
+
+.buttons{
+    width: 60%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.2s all;
+}
+
+.button:hover{
+    background-color: white;
+    border-radius: 10px 10px 0 0 ;
+    color: rgb(128, 31, 39);
+}
+
+.active{
+    background-color: white;
+    border-radius: 10px 10px 0 0 ;
+    color: rgb(128, 31, 39);
+}
+
+
+.icons{
+    font-size: 30px;
+}
+
+.input input{
+    width: 70%;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(92, 89, 89);
+}
+
+.input button{
+    width: 20%;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color:rgb(207, 48, 48) ;
+    color: white;
+    margin-left: 20px;
+}
+
+.input button:hover{
+    background-color:rgb(180, 31, 31) ;
+}
+
+.fa-download{
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.input h5{
+    margin-top: 10px;
+}
+
+.input span{
+    font-weight: bold;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.step {
+    text-align: center;
+}
+
+.dotted-line {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.dotted-line::after {
+    display: inline;
+    content: "---------------";
+    letter-spacing: 0.5px; /* Adjust letter spacing as needed */
+    font-size: 20px;
+    line-height: 60px;
+    color: #ff5e62;
+}
+
+.step p{
+    font-size: 12px;
+}
+
+.step span {
+    display: block;
+    background: #ffc6c7;
+    color: #ff5e62;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    border-color: #ff5e62;
+    border-style: solid;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    line-height: 60px;
+}
+
+/* Section */
+
+section{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+.section{
+    width:70%;
+    display: none;
+}
+
+.stories{
+    display: block;
+}
+
+.section h3{
+    margin: 20px 0;
+}
+
+.section h4{
+    margin: 10px 0;
+}
+
+/* Footer */
+
+footer{
+    width: 100vw;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    border-top: 2px solid rgba(207, 203, 203, 0.37);
+}
+.footer-right{
+    width: 40%;
+}
+
+
+.footer{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.footer-right ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-right ul li{
+    list-style: none;
+    font-weight: bold;
+}
+
+.footer-right ul li a{
+    color: rgb(66, 66, 66);
+    font-size: 15px;
+}
+.footer-right ul li a:hover{
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+
+
+
+@media screen and (max-width:1000px){
+    .right{
+        display: none;
+    }
+
+    .sidebar{
+        display: block;
+    }
+
+    .input{
+        width: 90%;
+    }
+}
+
+
+
+</style>
